@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Robot Studios — Indie Game Studio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pizza Robot Studios">
+    <meta property="og:description" content="An indie game studio based in Los Angeles. Building fun, quirky mobile games for iOS and Android.">
+    <meta property="og:url" content="https://pizzarobotstudios.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+
+    <meta name="description" content="Pizza Robot Studios is an indie game studio based in Los Angeles, building fun, quirky mobile games for iOS and Android.">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lora', Georgia, serif;
+            background-color: #000000;
+            color: #c0c8d0;
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 50% 15%, rgba(180, 190, 200, 0.10) 0%, transparent 45%),
+                radial-gradient(ellipse at 50% 50%, rgba(150, 160, 170, 0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 85%, rgba(180, 190, 200, 0.06) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page { position: relative; z-index: 1; }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 80px 24px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .studio-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 28px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            filter: drop-shadow(0 0 40px rgba(180, 190, 200, 0.15));
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 38px;
+            font-weight: 900;
+            color: #e0e4e8;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            line-height: 1.15;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            color: #8a9aaa;
+            letter-spacing: 6px;
+            margin-top: 12px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: #9aa4ae;
+            max-width: 500px;
+            margin: 28px auto 0;
+            line-height: 1.8;
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: rgba(170, 180, 190, 0.15);
+            margin: 52px auto;
+        }
+
+        /* ===== GAMES ===== */
+        .games {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 24px 20px;
+            text-align: center;
+        }
+
+        .games h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #8a9aaa;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 36px;
+        }
+
+        .game-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            padding: 28px 28px;
+            border: 1px solid rgba(170, 180, 190, 0.08);
+            border-radius: 14px;
+            background: rgba(170, 180, 190, 0.02);
+            margin-bottom: 20px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover {
+            background: rgba(170, 180, 190, 0.04);
+            border-color: rgba(150, 165, 180, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(150, 165, 180, 0.05);
+        }
+
+        .game-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .game-card-logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .game-card-title {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #e0e4e8;
+            letter-spacing: 1px;
+        }
+
+        .game-card-status {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-left: 12px;
+        }
+
+        .status-active {
+            color: #8a9aaa;
+            background: rgba(150, 165, 180, 0.12);
+            border: 1px solid rgba(150, 165, 180, 0.2);
+        }
+
+        .status-dev {
+            color: rgba(170, 180, 190, 0.45);
+            background: rgba(170, 180, 190, 0.05);
+            border: 1px solid rgba(170, 180, 190, 0.1);
+        }
+
+        .game-card p {
+            font-size: 15px;
+            color: rgba(140, 150, 165, 0.7);
+            line-height: 1.7;
+        }
+
+        .game-card-platforms {
+            margin-top: 12px;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(170, 180, 190, 0.35);
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            max-width: 540px;
+            margin: 0 auto;
+            padding: 0 24px 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #8a9aaa;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 16px;
+            color: #9aa4ae;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about p:last-child {
+            margin-bottom: 0;
+        }
+
+        .location {
+            display: inline-block;
+            margin-top: 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(170, 180, 190, 0.35);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            text-align: center;
+            padding: 0 24px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #8a9aaa;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .contact p {
+            font-size: 16px;
+            color: #9aa4ae;
+            margin-bottom: 24px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-block;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #8a9aaa;
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 1px solid rgba(150, 165, 180, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(150, 165, 180, 0.08);
+            border-color: rgba(150, 165, 180, 0.5);
+            color: #e0e4e8;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            margin-top: 52px;
+            padding: 32px 24px 40px;
+            border-top: 1px solid rgba(170, 180, 190, 0.1);
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: rgba(170, 180, 190, 0.4);
+            text-decoration: none;
+            margin: 0 14px;
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #8a9aaa;
+        }
+
+        .footer-studio {
+            font-size: 13px;
+            color: rgba(170, 180, 190, 0.25);
+            margin-bottom: 4px;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: rgba(170, 180, 190, 0.18);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .hero { padding: 50px 18px 32px; }
+            .hero h1 { font-size: 28px; letter-spacing: 2px; }
+            .hero h1 span { font-size: 13px; letter-spacing: 4px; }
+            .hero-description { font-size: 16px; }
+            .studio-logo { width: 160px; }
+            .game-card { padding: 22px 20px; }
+            .game-card-title { font-size: 17px; }
+            .game-card-header { gap: 12px; }
+            .contact-links { flex-direction: column; align-items: center; }
+            .footer-links a { margin: 0 8px; font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- HERO -->
+        <section class="hero">
+            <img src="assets/logo.png" alt="Pizza Robot Studios" class="studio-logo">
+            <h1>
+                Pizza Robot Studios
+                <span>Indie Game Studio</span>
+            </h1>
+            <p class="hero-description">
+                We build fun, quirky mobile games with personality.
+                Small studio. Big ideas. Weird characters.
+            </p>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- GAMES -->
+        <section class="games">
+            <h2>Our Games</h2>
+
+            <a href="https://rockpaperpvp.com" class="game-card">
+                <div class="game-card-header">
+                    <img src="assets/rppvp-logo.png" alt="Rock Paper PvP" class="game-card-logo">
+                    <span class="game-card-title">Rock Paper PvP</span>
+                    <span class="game-card-status status-active">Coming Soon</span>
+                </div>
+                <p>
+                    A fast, competitive rock-paper-scissors battle game with quirky medieval characters, 
+                    leaderboard bragging rights, and quick 20-second fights.
+                </p>
+                <div class="game-card-platforms">iOS &amp; Android</div>
+            </a>
+
+            <div class="game-card" style="cursor: default;">
+                <div class="game-card-header">
+                    <img src="assets/spamcraft-logo.png" alt="SpamCraft" class="game-card-logo">
+                    <span class="game-card-title">SpamCraft</span>
+                    <span class="game-card-status status-dev">In Development</span>
+                </div>
+                <p>
+                    A pixel art RPG with crafting, exploration, and a world full of 
+                    secrets waiting to be uncovered. More details coming soon.
+                </p>
+                <div class="game-card-platforms">iOS &amp; Android</div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- ABOUT -->
+        <section class="about">
+            <h2>About Us</h2>
+            <p>
+                Pizza Robot Studios is an indie game studio based in Los Angeles. 
+                We're a small team driven by a love for classic games, creative character design, 
+                and building experiences that make people smile.
+            </p>
+            <p>
+                Our games are built for quick fun with lasting depth — easy to pick up, 
+                hard to put down, and full of surprises.
+            </p>
+            <span class="location">Los Angeles, California</span>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- CONTACT -->
+        <section class="contact">
+            <h2>Contact</h2>
+            <p>Questions, feedback, or business inquiries?</p>
+            <div class="contact-links">
+                <a href="mailto:support@pizzarobotstudios.com" class="contact-link">Support</a>
+                <a href="mailto:feedback@pizzarobotstudios.com" class="contact-link">Feedback</a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="https://rockpaperpvp.com/privacy/">Privacy</a>
+                <a href="https://rockpaperpvp.com/terms/">Terms</a>
+                <a href="mailto:support@pizzarobotstudios.com">Support</a>
+            </div>
+            <p class="footer-studio">Pizza Robot Studios LLC</p>
+            <p class="footer-copy">&copy; 2026 Pizza Robot Studios LLC. All rights reserved.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
