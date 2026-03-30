@@ -191,6 +191,24 @@
             line-height: 1.7;
         }
 
+        .store-badges {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .badge-apple {
+            height: 40px;
+            width: auto;
+        }
+
+        .badge-google {
+            height: 58px;
+            width: auto;
+            margin: -9px 0;
+        }
+
         .game-card-platforms {
             margin-top: 12px;
             font-family: 'Cinzel', serif;
@@ -433,9 +451,9 @@
                             A fast, competitive rock-paper-scissors battle game with quirky medieval characters,
                             leaderboard bragging rights, and quick 20-second fights.
                         </p>
-                        <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px;">
-                            <a href="https://apps.apple.com/us/app/rock-paper-pvp/id6760728348" target="_blank" rel="noopener noreferrer"><img src="assets/app-store-badge.svg" alt="Download on the App Store" style="height: 40px;"></a>
-                            <a href="https://play.google.com/store/apps/details?id=com.pizzarobotstudios.rockpaperpvp" target="_blank" rel="noopener noreferrer"><img src="assets/google-play-badge.png" alt="Get it on Google Play" style="height: 40px;"></a>
+                        <div class="store-badges">
+                            <a href="https://apps.apple.com/us/app/rock-paper-pvp/id6760728348" target="_blank" rel="noopener noreferrer"><img src="assets/app-store-badge.svg" alt="Download on the App Store" class="badge-apple"></a>
+                            <a href="https://play.google.com/store/apps/details?id=com.pizzarobotstudios.rockpaperpvp" target="_blank" rel="noopener noreferrer"><img src="assets/google-play-badge.png" alt="Get it on Google Play" class="badge-google"></a>
                         </div>
                     </div>
                     <img src="assets/rppvp_product_shot.png" alt="Rock Paper PvP gameplay" class="game-card-shot">
