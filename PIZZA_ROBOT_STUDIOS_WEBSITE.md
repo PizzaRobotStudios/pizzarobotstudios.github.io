@@ -21,8 +21,10 @@ This is intentionally a single-page, scrolling marketing site. No backend, no JS
 The entire homepage is one `index.html` file. Sections in order:
 
 1. **Hero** - Animated robot GIF logo, studio name, "Indie Games & Apps" tagline
-2. **Coming Soon** - DraftCall card (featured, next release)
+2. **Our Apps** - DraftCall card (Coming Soon)
 3. **Our Games** - Rock Paper PvP card (Live), SpamCraft card (In Development)
+
+**Section ordering strategy:** Whichever category has the newest release goes on top. Rotate "Our Apps" and "Our Games" as new products launch.
 4. **About Us** - Studio description, Los Angeles location
 5. **Contact** - Support and Feedback email buttons
 6. **Footer** - Privacy, Terms, Support links + copyright
