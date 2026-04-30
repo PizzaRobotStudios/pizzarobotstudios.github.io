@@ -22,12 +22,13 @@ The entire homepage is one `index.html` file. Sections in order:
 
 1. **Hero** - Animated robot GIF logo, studio name, "Indie Games & Apps" tagline
 2. **Our Apps** - DraftCall card (Coming Soon)
-3. **Our Games** - Rock Paper PvP card (Live), SpamCraft card (In Development)
+3. **Our Games** - Rock Paper PvP card (Live)
+4. **In Development** - SpamCraft card and other long-term projects not yet ready for release
+5. **About Us** - Studio description, Los Angeles location
+6. **Contact** - Support and Feedback email buttons
+7. **Footer** - Privacy, Terms, Support links + copyright
 
-**Section ordering strategy:** Whichever category has the newest release goes on top. Rotate "Our Apps" and "Our Games" as new products launch.
-4. **About Us** - Studio description, Los Angeles location
-5. **Contact** - Support and Feedback email buttons
-6. **Footer** - Privacy, Terms, Support links + copyright
+**Section ordering strategy:** Whichever category has the newest release goes on top (currently Our Apps with DraftCall). Rotate "Our Apps" and "Our Games" as new products launch. "In Development" stays last among the project sections — it's the bench, not a featured release. Long-term WIP projects move from In Development up into Our Apps or Our Games once they hit "Coming Soon" or "Live" status.
 
 Sections are visually separated by thin centered divider lines (60px wide, faint gray).
 
@@ -74,16 +75,19 @@ Refined, minimal, slightly mystical. Think medieval/ambient — fits SpamCraft's
 ### Games
 
 **Rock Paper PvP** — `rockpaperpvp.com`
-- Status badge: "Coming Soon" (status-active style)
+- Status badge: "Live" (status-active style)
 - Description: Fast competitive RPS battle game with quirky medieval characters, leaderboard bragging rights, 20-second fights
-- Platforms: iOS & Android
-- Card is a clickable link to rockpaperpvp.com
+- Platforms: iOS & Android (App Store + Google Play badges)
+- Card title links to rockpaperpvp.com; store badges link to the App Store and Google Play listings
 
-**SpamCraft** — In development
+### In Development
+
+**SpamCraft**
 - Status badge: "In Development" (status-dev style, more muted)
 - Description: Pixel art RPG with crafting, exploration, hidden secrets
 - Platforms: iOS & Android
 - Card is **not** a link (cursor: default) — no public site yet
+- Lives in the dedicated "In Development" section, not under Games
 
 ### Tools & Apps
 
@@ -186,6 +190,7 @@ All emails route to Evan's inbox.
 
 - **April 2026:** Added Tools & Apps section with DraftCall card. Swapped static studio logo for animated GIF in hero. Maintained 100% styling parity with prior version (same Cinzel/Lora fonts, same card classes, same color palette).
 - **April 2026:** Moved DraftCall to top of page as "Coming Soon" featured section. Rebranded from "Indie Game Studio" to "Indie Games & Apps" across title, meta tags, hero, and about. Updated DraftCall logo to new neon app icon. Fixed em dashes site-wide. Privacy/Terms now at studio-level paths.
+- **April 2026:** Split SpamCraft out of "Our Games" into a new dedicated "In Development" section (`.in-dev` class, mirrors `.games`/`.tools` styling). "Our Games" now showcases only released titles (Rock Paper PvP); "In Development" becomes the home for long-term WIP projects. Page order is now Our Apps → Our Games → In Development → About → Contact.
 
 ---
 
